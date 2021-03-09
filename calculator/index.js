@@ -12,7 +12,7 @@ let operator; // 연산자
 
 plusButton.addEventListener('click', () => {
     if (numberInput.value) {
-        temp = numberInput.value;
+        temp = Number(numberInput.value);
         operator = '+';
         numberInput.value = null;
     }
@@ -25,17 +25,17 @@ clearButton.addEventListener('click', () => {
     //자바스크립트를 어느정도 이해했을때 null과 undefined를 구분해서 써보아라.
 })
 
-resultButton.addEventListener('click', () => {
+calculateButton.addEventListener('click', () => {
     if (operator) {
         if (numberInput.value) {
             if (operator === '+') {
-                resultInput.value = temp + numberInput.value;
+                resultInput.value = temp + Number(numberInput.value);
             } else if (operator === '-') {
-                resultInput.value = temp - numberInput.value;
+                resultInput.value = temp - Number(numberInput.value);
             } else if (operator === '*') {
-                resultInput.value = temp * numberInput.value;
+                resultInput.value = temp * Number(numberInput.value);
             } else if (operator === '/') {
-                resultInput.value = temp / numberInput.value;
+                resultInput.value = temp / Number(numberInput.value);
             }
         }
     } else {
