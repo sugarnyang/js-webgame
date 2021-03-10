@@ -11,66 +11,53 @@ let temp; // 임시값
 let operator; // 연산자
 
 plusButton.addEventListener('click', () => {
-    if (temp) {
-        operator = '+';
-        numberInput.value = '';
-    } else {
-        if (numberInput.value) {
-            temp = Number(numberInput.value);
-            operator = '+';
-            numberInput.value = null;
-        }
-    }
+    operator = '+';
+    calculate(operator);
 })
-
 minusButton.addEventListener('click', () => {
-    if (numberInput.value) {
-        temp = Number(numberInput.value);
-        operator = '-';
-        numberInput.value = null;
-    }
+    operator = '-';
+    calculate(operator);
 })
-
 divideButton.addEventListener('click', () => {
-    if (numberInput.value) {
-        temp = Number(numberInput.value);
-        operator = '/';
-        numberInput.value = null;
-    }
+    operator = '/';
+    calculate(operator);
 })
-
 multiplyButton.addEventListener('click', () => {
-    if (numberInput.value) {
-        temp = Number(numberInput.value);
-        operator = '*';
-        numberInput.value = null;
-    }
-})
-
-clearButton.addEventListener('click', () => {
-    numberInput.value = null; 
-    temp = null; 
-    operator = null; //취향에 따라서 undefined을 넣어도 된다. 둘 다 빈값이라는 뜻.
-    //자바스크립트를 어느정도 이해했을때 null과 undefined를 구분해서 써보아라.
-    resultInput.value = null;
+    operator = '*';
+    calculate(operator);
 })
 
 calculateButton.addEventListener('click', () => {
-    console.log(temp, operator, numberInput.value)
-    if (operator) {
-        if (numberInput.value) {
-            if (operator === '+') {
-                resultInput.value = temp + Number(numberInput.value);
-            } else if (operator === '-') {
-                resultInput.value = temp - Number(numberInput.value);
-            } else if (operator === '*') {
-                resultInput.value = temp * Number(numberInput.value);
-            } else if (operator === '/') {
-                resultInput.value = temp / Number(numberInput.value);
-            }
-            temp = Number(resultInput.value);
-            resultInput.value = temp;
-        }
-    } 
+    calculate(operator);
+    resultInput.value = Number(temp);
 })
 
+function calculate(operator) {
+    const before = temp;
+    if (numberInput.value) {
+        if (temp) {
+            if (operator === '+') {
+                temp = temp + Number(numberInput.value);
+            } else if (operator === '-') {
+                temp = temp - Number(numberInput.value);
+            } else if (operator === '*') {
+                temp = temp * Number(numberInput.value);
+            } else if (operator === '/') {
+                temp = temp / Number(numberInput.value);
+            }
+        } else {
+            temp = Number(numberInput.value);
+        }
+    } 
+    const after = temp;
+    console.log(before + operator + Number(numberInput.value) + '=' + after);
+    numberInput.value = null;
+    operator = null;
+}
+
+clearButton.addEventListener('click', () => {
+    numberInput.value = null;
+    temp = null;
+    operator = null;
+    resultInput.value = null;
+})
