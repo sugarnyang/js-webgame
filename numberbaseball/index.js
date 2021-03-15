@@ -2,12 +2,13 @@ const input = document.querySelector('#input');
 const check = document.querySelector('#check');
 const logs = document.querySelector('#logs');
 
-let answer;
-const first = String(Math.floor(Math.random() * 10)) // 3
-const second = String(Math.floor(Math.random() * 10)) // 0
-const third = String(Math.floor(Math.random() * 10)) // 4
-const fourth = String(Math.floor(Math.random() * 10)) // 6
-first + second + third + fourth // 3046
+let answer = [
+    Math.floor(Math.random() * 10),
+    Math.floor(Math.random() * 10),
+    Math.floor(Math.random() * 10),
+    Math.floor(Math.random() * 10)
+];
+answer.join(''); // 3046
 
 let count = 0;
 check.addEventListener('click', () => {
