@@ -2,13 +2,13 @@ const input = document.querySelector('#input');
 const check = document.querySelector('#check');
 const logs = document.querySelector('#logs');
 
-let answer = [
-    Math.floor(Math.random() * 10),
-    Math.floor(Math.random() * 10),
-    Math.floor(Math.random() * 10),
-    Math.floor(Math.random() * 10)
-];
-answer.join(''); // 3046
+let answer = [];
+let n = 0;
+while (n <= 3) {
+    answer[n] = Math.floor(Math.random() * 10); //n자리 생성
+    n = n + 1;
+}
+answer.join('');
 
 let count = 0;
 check.addEventListener('click', () => {
@@ -19,4 +19,5 @@ check.addEventListener('click', () => {
 
         }
     }
+    console.log(value)
 });
