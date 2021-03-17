@@ -2,13 +2,16 @@ const input = document.querySelector('#input');
 const check = document.querySelector('#check');
 const logs = document.querySelector('#logs');
 
+let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let answer = [];
 let n = 0;
 while (n <= 3) {
-    answer[n] = Math.floor(Math.random() * 10); //n자리 생성
-    n = n + 1;
+    const index = answer[n] = Math.floor(Math.random() * (10 - n)); // 0 ~ 9 정수
+    answer.push(numbers[index]);
+    numbers.splice(index, 1);
+    n += 1;
 }
-answer.join('');
+console.log(answer);
 
 let count = 0;
 check.addEventListener('click', () => {
