@@ -18,8 +18,10 @@ check.addEventListener('click', () => {
     const value = input.value; //문자열 ex) '3046' true truthy
     // 0, '', NaN, false, null, undefined -> falsy value
     if (value && value.length === 4) { // 앰퍼센드 AND 연산자 / 보호연산자
-        if (answer === value) {
-
+        if (answer.join('') === value) {
+            logs.appendChild(document.createTextNode('HR'));
+        } else {
+            console.log('다르다')
         }
     }
     console.log(value)
