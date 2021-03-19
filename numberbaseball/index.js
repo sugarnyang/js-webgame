@@ -4,12 +4,11 @@ const logs = document.querySelector('#logs');
 
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let answer = [];
-let n = 0;
-while (n <= 3) {
+
+for (let n = 0; n <= 3; n += 1) {
     const index = answer[n] = Math.floor(Math.random() * (10 - n)); // 0 ~ 9 정수
     answer.push(numbers[index]);
     numbers.splice(index, 1);
-    n += 1;
 }
 console.log(answer);
 
@@ -22,6 +21,19 @@ check.addEventListener('click', () => {
             logs.appendChild(document.createTextNode('HR'));
         } else {
             console.log('다르다')
+            let strike = 0;
+            let ball = 0;
+            for (const [aIndex, number] of answer.entries()) {
+                for (const [iIndex, input] of input.value.split('').entries()) {
+                    if (number === input) {
+                        if (aIndex === iIndex) {
+                            strike += 1;
+                        } else {
+                            ball += 1;
+                        }
+                    }
+                }
+            }
         }
     }
     console.log(value)
