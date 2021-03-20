@@ -6,7 +6,7 @@ let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let answer = [];
 
 for (let n = 0; n <= 3; n += 1) {
-    const index = answer[n] = Math.floor(Math.random() * (10 - n)); // 0 ~ 9 정수
+    const index = Math.floor(Math.random() * (10 - n)); // 0 ~ 9 정수
     answer.push(numbers[index]);
     numbers.splice(index, 1);
 }
@@ -23,9 +23,9 @@ check.addEventListener('click', () => {
             console.log('다르다')
             let strike = 0;
             let ball = 0;
-            for (const [aIndex, number] of answer.entries()) {
-                for (const [iIndex, input] of input.value.split('').entries()) {
-                    if (number === input) {
+            for (const [aIndex, aNumber] of answer.entries()) {
+                for (const [iIndex, iString] of input.value.split('').entries()) {
+                    if (aNumber === Number(iString)) {
                         if (aIndex === iIndex) {
                             strike += 1;
                         } else {
@@ -33,6 +33,12 @@ check.addEventListener('click', () => {
                         }
                     }
                 }
+            }
+            logs.appendChild(document.createTextNode(`${input.value}: ${strike} strike ${ball} ball\n`))
+            if (count > 10) {
+                logs.appendChild(document.createTextNode(`Game Over: ${answer.join('')}`))
+            } else {
+                count++;
             }
         }
     }
