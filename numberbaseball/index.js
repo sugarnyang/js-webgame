@@ -18,9 +18,9 @@ check.addEventListener('click', () => {
     // 0, '', NaN, false, null, undefined -> falsy value
     if (value && value.length === 4) { // 앰퍼센드 AND 연산자 / 보호연산자
         if (answer.join('') === value) {
-            logs.appendChild(document.createTextNode('HR'));
+            logs.textContent = 'HR';
         } else {
-            console.log('다르다')
+            console.log('다르다');
             let strike = 0;
             let ball = 0;
             for (const [aIndex, aNumber] of answer.entries()) {
@@ -34,9 +34,12 @@ check.addEventListener('click', () => {
                     }
                 }
             }
-            logs.appendChild(document.createTextNode(`${input.value}: ${strike} strike ${ball} ball\n`))
+            const message = document.createTextNode(`${input.value}: ${strike} strike ${ball} ball`);
+            logs.appendChild(message);
+            logs.appendChild(document.createElement('br'));
             if (count > 10) {
                 logs.appendChild(document.createTextNode(`Game Over: ${answer.join('')}`))
+                logs.appendChild(document.createElement('br'));
             } else {
                 count++;
             }
