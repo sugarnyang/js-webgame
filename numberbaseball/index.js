@@ -34,9 +34,7 @@ check.addEventListener('click', () => {
                     }
                 }
             }
-            const message = document.createTextNode(`${input.value}: ${strike} strike ${ball} ball`);
-            logs.appendChild(message);
-            logs.appendChild(document.createElement('br'));
+            logs.append(`${input.value}: ${strike} strike ${ball} ball`, document.createElement('br'));
             if (count > 10) {
                 logs.appendChild(document.createTextNode(`Game Over: ${answer.join('')}`))
                 logs.appendChild(document.createElement('br'));
