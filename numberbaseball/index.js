@@ -2,11 +2,15 @@ const input = document.querySelector('#input');
 const check = document.querySelector('#check');
 const logs = document.querySelector('#logs');
 
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let numbers = A rray(10).fill().map((v, i) => i)
+let numbers = [];
+for (let n = 0; n <= 9; n += 1) {
+    numbers.push(n);
+}
 let answer = [];
 
 for (let n = 0; n <= 3; n += 1) {
-    const index = Math.floor(Math.random() * (10 - n)); // 0 ~ 9 정수
+    const index = Math.floor(Math.random() * numbers.length); // 0 ~ 9 정수
     answer.push(numbers[index]);
     numbers.splice(index, 1);
 }
