@@ -1,0 +1,1 @@
+const candidate = Array(45).fill();
