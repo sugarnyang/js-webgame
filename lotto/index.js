@@ -1,8 +1,8 @@
 const candidate = Array(45).fill().map((v, i) => i + 1)
 const shuffle = [];
-while (candidate.length > 0) { 
+while (candidate.length > 0) {
     const value = candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0];
-    
+
     /*
     const random = Math.floor(Math.random() * candidate.length);
     const spliceArray = candidate.splice(candidate.splice(random), 1);
@@ -12,7 +12,7 @@ while (candidate.length > 0) {
     shuffle.push(value);
 }
 console.log(shuffle);
-const winBalls = shuffle.slice(0, 6);
+const winBalls = shuffle.slice(0, 6).sort((p, c) => p - c);
 const bonus = shuffle[6];
 console.log(winBalls);
 console.log(bonus);
@@ -93,4 +93,17 @@ console.log(bonus);
     여러개를 꺼낼 수 있기 때문에
     <- [1, 2, 3].splice(1, 2)
     -> [2, 3]
+*/
+/*
+    sort는 숫자 순서대로 정렬해주는게 아니라 사전에서 찾듯 정렬한다.
+
+    const winBalls = shuffle.slice(0, 6).sort((p, c) =>{
+        return p - c;
+    });
+    return 값이 0보다 크면 자리를 바꾼다. 오름차순 정렬이 되었다.
+
+    return c - p; 로 바꾸면 내림차순이 되겠다.
+
+    맨 앞에서부터 순서대로 정렬을 하는건 아니고
+    브라우저별로 실행 순서는 다르다.
 */
