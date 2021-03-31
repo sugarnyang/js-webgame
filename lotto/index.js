@@ -17,6 +17,36 @@ const bonus = shuffle[6];
 console.log(winBalls);
 console.log(bonus);
 
+const resultTag = document.querySelector('#result');
+for (let i = 0; i < 6; i++) {
+    const ball = document.createElement('div');
+    ball.className = 'ball';
+    colorize(winBalls[i], ball);
+    ball.textContent = winBalls[i];
+    resultTag.appendChild(ball);
+}
+
+const bonusTag = document.querySelector('#bonus');
+const bonusBall = document.createElement('div');
+bonusBall.className = 'bonusBall';
+bonusBall.textContent = bonus;
+colorize(bonus, bonusBall);
+bonusTag.appendChild(bonusBall);
+
+function colorize(number, tag) {
+    if (number <= 10) {
+        tag.style.backgroundColor = 'gold';
+    } else if (number <= 20) {
+        tag.style.backgroundColor = 'skyblue';
+    } else if (number <= 30) {
+        tag.style.backgroundColor = 'coral';
+    } else if (number <= 40) {
+        tag.style.backgroundColor = 'thistle';
+    } else {
+        tag.style.backgroundColor = 'yellowgreen';
+    }
+}
+
 /*
     fill을 해야 45개의 숫자가 생김
     없으면 length는 45인데 empty*45로 생김
