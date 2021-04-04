@@ -1,35 +1,60 @@
 const computerTag = document.querySelector('#computer');
 computerTag.style.background = `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) 0 0`;
 
-let coord = '0';
-const rspCoord = {
+let computerChoice = 'rock';
+const rspLatitude = {
     rock: '0',
     scissors: '-142px',
     paper: '-284px'
 };
 setInterval(() => {
-    if (coord === rspCoord.rock) {
-        coord = rspCoord.scissors;
-    } else if (coord === rspCoord.scissors) {
-        coord = rspCoord.paper;
-     } else if (coord === rspCoord.paper) {
-        coord = rspCoord.rock;
+    if (computerChoice === 'rock') {
+        computerChoice = 'scissors';
+    } else if (computerChoice === 'scissors') {
+        computerChoice = 'paper';
+     } else if (computerChoice === 'paper') {
+        computerChoice = 'rock';
     }
-    computerTag.style.background = `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${coord} 0`;
-}, 50);
+    computerTag.style.background = `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${rspLatitude[computerChoice]} 0`;
+}, 500);
 
 const rockTag = document.querySelector('#rock');
 const scissorsTag = document.querySelector('#scissors');
 const paperTag = document.querySelector('#paper');
 
+// 가위: 1, 바위: 0, 보: -1
+/*  규칙 찾기 표
+    나\컴퓨터   가위    바위    보
+      가위      0     1     2
+      바위      -1    0     1
+      보       -2    -1     0
+*/
+const score = {
+    rock: 0,
+    scissors: 1,
+    paper: -1,
+};
+
 rockTag.addEventListener('click', () => {
-    
+    const myScore = score.rock;
+    const computerScore = score[computerChoice];
+    const diff = myScore - computerScore;
+    const scoreTag = document.querySelector('#score');
+    let addScore = Number(scoreTag.textContent);
+    if (diff === 2 || diff === -1) {
+        addScore += 1;
+    } else if (diff === -2 || diff === 1) {
+        addScore -= 1;
+    }
+    scoreTag.textContent = addScore;
 });
 scissorsTag.addEventListener('click', () => {
-
+    const myScore = score.scissors;
+    const computerScore = score[computerChoice];
 });
 paperTag.addEventListener('click', () => {
-
+    const myScore = score.paper;
+    const computerScore = score[computerChoice];
 });
 
 /*
