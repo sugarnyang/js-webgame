@@ -18,6 +18,20 @@ setInterval(() => {
     computerTag.style.background = `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${coord} 0`;
 }, 50);
 
+const rockTag = document.querySelector('#rock');
+const scissorsTag = document.querySelector('#scissors');
+const paperTag = document.querySelector('#paper');
+
+rockTag.addEventListener('click', () => {
+    
+});
+scissorsTag.addEventListener('click', () => {
+
+});
+paperTag.addEventListener('click', () => {
+
+});
+
 /*
     자바스크립트는 위에서 아래로 시작되는데
     나중에 실행되는 코드들도 있다.
