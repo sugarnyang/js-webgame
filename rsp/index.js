@@ -7,16 +7,20 @@ const rspLatitude = {
     scissors: '-142px',
     paper: '-284px'
 };
-setInterval(() => {
-    if (computerChoice === 'rock') {
-        computerChoice = 'scissors';
-    } else if (computerChoice === 'scissors') {
-        computerChoice = 'paper';
-    } else if (computerChoice === 'paper') {
-        computerChoice = 'rock';
-    }
-    computerTag.style.background = `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${rspLatitude[computerChoice]} 0`;
-}, 500);
+
+const intervalMaker = () => {
+    return setInterval(() => { // setInterval은 영원히 돈다
+        if (computerChoice === 'rock') {
+            computerChoice = 'scissors';
+        } else if (computerChoice === 'scissors') {
+            computerChoice = 'paper';
+        } else if (computerChoice === 'paper') {
+            computerChoice = 'rock';
+        }
+        computerTag.style.background = `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${rspLatitude[computerChoice]} 0`;
+    }, 500);
+};
+let intervalId = intervalMaker();
 
 const rockTag = document.querySelector('#rock');
 const scissorsTag = document.querySelector('#scissors');
@@ -35,6 +39,7 @@ const score = {
 };
 
 const clickButton = (myChoice) => () => {
+    clearInterval(intervalId);
     // 고차함수. 함수가 다른 함수를 리턴한다. 중괄호 다음에 리턴이 바로오면 중괄호 생략 가능.
     // 그래서 =>가 연달아 있는것
     // 다른 함수를 리턴해야 하는 이유는 리턴받는 곳에 undified가 아니라 함수가 들어가야하기 때문.
@@ -49,6 +54,9 @@ const clickButton = (myChoice) => () => {
         addScore -= 1;
     }
     scoreTag.textContent = addScore;
+    setTimeout(() => {
+        intervalId = intervalMaker(); 
+    }, 1000);
 };
 rockTag.addEventListener('click', clickButton('rock'));
 scissorsTag.addEventListener('click', clickButton('scissors'));
