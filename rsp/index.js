@@ -63,12 +63,19 @@ scissorsTag.addEventListener('click', clickButton('scissors'));
 paperTag.addEventListener('click', clickButton('paper'));
 
 
-// 설명
-const clickButton = (myChoice) => {
-    // 어떤 동작
-    return undefined; 리턴값이 없는 함수는 undefined가 숨어있다. 
-}
-rockTag.addEventListener('click', clickButton('rock'));
+/*
+// 고차함수 설명
+    const clickButton = (myChoice) => {
+        // 어떤 동작
+        return undefined; 리턴값이 없는 함수는 undefined가 숨어있다. 
+    }
+    rockTag.addEventListener('click', () => {
+        이 자리는 함수 자린데 undefined 가 들어가면 안되겠지.
+    });
+
+    rockTag.addEventListener('click', () => {});
+    이렇게 생각하는게 좋다.
+*/
 
 /*
     자바스크립트는 위에서 아래로 시작되는데
