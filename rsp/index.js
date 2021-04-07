@@ -62,6 +62,14 @@ rockTag.addEventListener('click', clickButton('rock'));
 scissorsTag.addEventListener('click', clickButton('scissors'));
 paperTag.addEventListener('click', clickButton('paper'));
 
+
+// 설명
+const clickButton = (myChoice) => {
+    // 어떤 동작
+    return undefined; 리턴값이 없는 함수는 undefined가 숨어있다. 
+}
+rockTag.addEventListener('click', clickButton('rock'));
+
 /*
     자바스크립트는 위에서 아래로 시작되는데
     나중에 실행되는 코드들도 있다.
