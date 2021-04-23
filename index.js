@@ -2,6 +2,7 @@ const calculatorButton = document.querySelector('#calculator');
 const gugudanButton = document.querySelector('#gugudan');
 const lottoButton = document.querySelector('#lotto');
 const minesweeperButton = document.querySelector('#minesweeper');
+const numberbaseballButton = document.querySelector('#numberbaseball');
 
 calculatorButton.addEventListener('click', () => {
     window.location.href = './calculator/index.html'
@@ -17,4 +18,8 @@ lottoButton.addEventListener('click', () => {
 
 minesweeperButton.addEventListener('click', () => {
     window.location.href = './minesweeper/index.html'
+});
+
+numberbaseballButton.addEventListener('click', () => {
+    window.location.href = './numberbaseball/index.html'
 });
