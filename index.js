@@ -4,6 +4,7 @@ const lottoButton = document.querySelector('#lotto');
 const minesweeperButton = document.querySelector('#minesweeper');
 const numberbaseballButton = document.querySelector('#numberbaseball');
 const rspButton = document.querySelector('#rsp');
+const wordrelayButton = document.querySelector('#wordrelay');
 
 calculatorButton.addEventListener('click', () => {
     window.location.href = './calculator/index.html'
@@ -27,4 +28,8 @@ numberbaseballButton.addEventListener('click', () => {
 
 rspButton.addEventListener('click', () => {
     window.location.href = './rsp/index.html'
+});
+
+wordrelayButton.addEventListener('click', () => {
+    window.location.href = './wordrelay/index.html'
 });
