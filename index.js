@@ -1,3 +1,4 @@
+const homeButton = document.querySelector('#home');
 const calculatorButton = document.querySelector('#calculator');
 const gugudanButton = document.querySelector('#gugudan');
 const lottoButton = document.querySelector('#lotto');
@@ -5,6 +6,10 @@ const minesweeperButton = document.querySelector('#minesweeper');
 const numberbaseballButton = document.querySelector('#numberbaseball');
 const rspButton = document.querySelector('#rsp');
 const wordrelayButton = document.querySelector('#wordrelay');
+
+homeButton.addEventListener('click', () => {
+    window.location.href = './index.html'
+});
 
 calculatorButton.addEventListener('click', () => {
     window.location.href = './calculator/index.html'
